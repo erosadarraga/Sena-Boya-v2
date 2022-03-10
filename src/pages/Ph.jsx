@@ -15,7 +15,7 @@ export const Ph = () => {
                 <div className="row">
                     <div className="col-8 col-md-12">
                         <div className="row">
-                            hola
+                            hola1
                         </div>
 
 

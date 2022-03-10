@@ -31,14 +31,7 @@ const data = {
             percent: 55
         }
     ],
-    revenueSummary: {
-        title: 'Revenue',
-        value: '$678',
-        chartData: {
-            labels: ['May', 'Jun', 'July', 'Aug', 'May', 'Jun', 'July', 'Aug'],
-            data: [300, 300, 280, 380, 200, 300, 280, 350]
-        }
-    },
+
     overall: [
         {
             value: '300K',

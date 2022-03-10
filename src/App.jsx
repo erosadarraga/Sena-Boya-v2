@@ -6,8 +6,14 @@ import Dashboard from './pages/Dashboard'
 import MainLayout from './layout/MainLayout'
 import { Ph } from "./pages/Ph"
 import { Tem } from "./pages/Tem"
+import { variance } from "simple-statistics"
 
 function App() {
+
+    const data1 = variance([1, 2, 3, 4, 5, 6])
+
+    console.log(data1)
+
     return (
         <BrowserRouter>
             <Routes>

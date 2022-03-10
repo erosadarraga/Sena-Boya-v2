@@ -12,9 +12,7 @@ import {
     Tooltip,
     Legend,
 } from 'chart.js';
-
-
-
+import { Loader } from "./loader/Loader"
 
 ChartJS.register(
     CategoryScale,
@@ -43,7 +41,7 @@ interface Props {
 export const GraphLine = ({ options, data }: Props) => {
 
     return (<div className='card p-2'>
-        {data ? <Line options={options} data={data} /> : <p className='text-center'>Cargando...</p>}
+        {data ? <Line options={options} data={data} /> : <Loader />}
     </div>)
 
 }
