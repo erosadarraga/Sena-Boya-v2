@@ -4,7 +4,7 @@ import { Analitica } from '../components/analitica/Analitica'
 export const Tem = () => {
     return (
 
-        <Analitica />
+        <h1>Que pedo</h1>
 
 
     )

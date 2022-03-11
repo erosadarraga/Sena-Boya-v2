@@ -51,7 +51,7 @@ export const usePeticionHook = () => {
                         },
                         title: {
                             display: true,
-                            text: 'Grafica boya',
+                            text: 'Linia de tiempo',
                         },
                     },
                 };

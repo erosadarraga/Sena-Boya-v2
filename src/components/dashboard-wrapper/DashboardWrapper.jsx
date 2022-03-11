@@ -18,6 +18,13 @@ export const DashboardWrapperMain = props => {
         </div>
     )
 }
+export const DashboardWrapperMain2 = props => {
+    return (
+        <div className='dashboard-wrapper__main2'>
+            {props.children}
+        </div>
+    )
+}
 
 export const DashboardWrapperRight = props => {
     return (
