@@ -17,6 +17,7 @@ import {
 import OverallList from '../components/overall-list/OverallList'
 import RevenueList from '../components/revenue-list/RevenueList'
 import { RevenueByMonthsChart } from '../components/RevenueByMonthsChart'
+import TopNav from '../components/topnav/TopNav'
 
 ChartJS.register(
     CategoryScale,
@@ -29,8 +30,11 @@ ChartJS.register(
 )
 
 const Dashboard = () => {
-    return (
+    return (<>
+    
+    
         <DashboardWrapper>
+           
             <DashboardWrapperMain>
                 <div className="row">
                     <div className="col-12 col-md-12">
@@ -49,16 +53,17 @@ const Dashboard = () => {
 
             </DashboardWrapperMain>
             <DashboardWrapperRight>
-                <div className="title mb">Overall</div>
+                <div className="title mb">Prueba</div>
                 <div className="mb">
                     <OverallList />
                 </div>
-                <div className="title mb">Revenue by channel</div>
+                <div className="title mb">Data</div>
                 <div className="mb">
                     <RevenueList />
                 </div>
             </DashboardWrapperRight>
         </DashboardWrapper>
+    </>
     )
 }
 

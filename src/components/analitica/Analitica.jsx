@@ -12,22 +12,22 @@ const { Option } = Select;
 export const Analitica = () => {
     const [active, setActive] = useState(false)
 
-    const { data, options, resultado } = usePeticionHook()
+    const { data, options, resultado, resMeanUse, resMedianAbsoluteDeviationUse, resStandardDeviationUse, resVarianceUse, resZScoreUse } = usePeticionHook()
 
     const stats = [
-        { title: 'Price to USD', value: 34, icon: <DollarCircleOutlined /> },
-        { title: 'Rank', value: 35, icon: <NumberOutlined /> },
-        { title: '24h Volume', value: 55, icon: <ThunderboltOutlined /> },
-        { title: 'Market Cap', value: 66, icon: <DollarCircleOutlined /> },
-        { title: 'All-time-high(daily avg.)', value: 55, icon: <TrophyOutlined /> },
+        { title: 'Diferencia', value: Math.round((resVarianceUse + Number.EPSILON) * 100) / 100, icon: <FundOutlined /> },
+        { title: 'Desviacion Estandar', value: Math.round((resStandardDeviationUse + Number.EPSILON) * 100) / 100, icon: <FundOutlined /> },
+        { title: 'Desviación Absoluta Mediana', value: resMedianAbsoluteDeviationUse, icon: <FundOutlined /> },
+        { title: 'Puntuación  Z', value: Math.round((resZScoreUse + Number.EPSILON) * 100) / 100, icon: <FundOutlined /> },
+        { title: 'Fake', value: 1, icon: <FundOutlined /> },
     ];
 
     const genericStats = [
-        { title: 'Number Of Markets', value: 55, icon: <FundOutlined /> },
-        { title: 'Number Of Exchanges', value: 66, icon: <MoneyCollectOutlined /> },
-        { title: 'Aprroved Supply', value: <CheckOutlined />, icon: <ExclamationCircleOutlined /> },
-        { title: 'Total Supply', value: 44, icon: <ExclamationCircleOutlined /> },
-        { title: 'Circulating Supply', value: 42, icon: <ExclamationCircleOutlined /> },
+        { title: 'Promedio ', value: Math.round((resMeanUse + Number.EPSILON) * 100) / 100, icon: <FundOutlined /> },
+        { title: 'Fake', value: 1, icon: <FundOutlined /> },
+        { title: 'Fake', value: 1, icon: <FundOutlined /> },
+        { title: 'Fake', value: 1, icon: <FundOutlined /> },
+        { title: 'Fake', value: 1, icon: <FundOutlined /> },
     ];
 
     const onClikc = () => {
@@ -45,10 +45,10 @@ export const Analitica = () => {
                 </Title>
             </Col>
 
-            {active ? <GraphLine data={data} options={options} className="col-12" /> : <Col className="stats-container">
+            {active ? <Col className="stats-container">
                 <Col className="coin-value-statistics">
                     <Col className="coin-value-statistics-heading">
-                        <Title level={3} className="coin-details-heading"> Value Statistics</Title>
+                        <Title level={3} className="coin-details-heading"> MEDIDAS DE DISPERSIÓN</Title>
                         <p>An overview showing the statistics of such as the base and quote currency, the rank, and trading volume.</p>
                     </Col>
                     {stats.map(({ icon, title, value }, index) => (
@@ -63,7 +63,7 @@ export const Analitica = () => {
                 </Col>
                 <Col className="other-stats-info">
                     <Col className="coin-value-statistics-heading">
-                        <Title level={3} className="coin-details-heading">Other Stats Info</Title>
+                        <Title level={3} className="coin-details-heading">MEDIDAS DE TENDENCIA CENTRAL</Title>
                         <p>An overview showing the statistics of , such as the base and quote currency, the rank, and trading volume.</p>
                     </Col>
                     {genericStats.map(({ icon, title, value }, index) => (
@@ -76,7 +76,8 @@ export const Analitica = () => {
                         </Col>
                     ))}
                 </Col>
-            </Col>}
+            </Col> : <GraphLine data={data} options={options} className="col-12" />
+            }
 
 
 

@@ -6,6 +6,7 @@ export interface API {
 
 export interface Datum {
     created_date: string;
+    created_time: string;
     id: number;
     ph: string;
     temperatura: string;

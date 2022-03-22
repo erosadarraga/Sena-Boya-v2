@@ -12,7 +12,7 @@ const icons = [
 const OverallList = () => {
     return (
         <ul className='overall-list'>
-            {
+            {/* {
                 data.overall.map((item, index) => (
                     <li className="overall-list__item" key={`overall-${index}`}>
                         <div className="overall-list__item__icon">
@@ -26,7 +26,7 @@ const OverallList = () => {
                         </div>
                     </li>
                 ))
-            }
+            } */}
         </ul>
     )
 }

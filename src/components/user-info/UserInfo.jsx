@@ -7,7 +7,7 @@ const UserInfo = ({ user }) => {
         <div className='user-info'>
 
             <div className="user-info__name">
-                <span>Sena boya</span>
+                <span>Proyecto EMMA Sensores</span>
             </div>
         </div>
     )

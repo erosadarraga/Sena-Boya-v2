@@ -11,20 +11,7 @@ import { usePeticionHook } from '../hook/usePeticionHook'
 export const Ph = () => {
 
     return (<>
-        <DashboardWrapper>
-            <DashboardWrapperMain2>
-
-                <div className="row">
-                    <div className="col-12">
-                        <Box>
-                            <Analitica />
-                        </Box>
-                    </div>
-                </div>
-
-            </DashboardWrapperMain2>
-
-        </DashboardWrapper>
+     <h1>hola</h1>
 
     </>
     )
