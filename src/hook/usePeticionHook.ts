@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Data, Datum, Options } from '../interface/api';
-import { variance, standardDeviation, medianAbsoluteDeviation, mean, zScore } from "simple-statistics"
+import { variance, standardDeviation, medianAbsoluteDeviation, mean, zScore, interquartileRange } from "simple-statistics"
 export const usePeticionHook = () => {
     const [resultado, setresultado] = useState<Datum[]>([])
     const [options, setOptions] = useState<Options>()
@@ -14,6 +14,7 @@ export const usePeticionHook = () => {
     const [resMedianAbsoluteDeviationUse, setResMedianAbsoluteDeviationUse] = useState<number>()
     const [resMeanUse, setResMeanUse] = useState<number>()
     const [resZScoreUse, setResZScoreUse] = useState<number>()
+    const [resInterquartileRangeUse,setResInterquartileRangeUse] = useState<number>()
 
     const URL = 'https://boyaxam.herokuapp.com/data'
     const URL2 = "https://boyaxam.herokuapp.com/vector"
@@ -43,11 +44,14 @@ export const usePeticionHook = () => {
                 const resMedianAbsoluteDeviation = medianAbsoluteDeviation(array)
                 const resMean = mean(array)
                 const resZScore = zScore(arrayAny[0], resMean, resStandardDeviation)
+                const resInterquartileRange = interquartileRange(array)
+
                 setResVarianceUse(resVariance)
                 setResStandardDeviationUse(resStandardDeviation)
                 setResMedianAbsoluteDeviationUse(resMedianAbsoluteDeviation)
                 setResMeanUse(resMean)
                 setResZScoreUse(resZScore)
+                setResInterquartileRangeUse(resInterquartileRange)
 
 
 
@@ -105,7 +109,7 @@ export const usePeticionHook = () => {
     }, [])
 
     return {
-        resultado, data, options, mapRest2, resVarianceUse, resStandardDeviationUse, resMedianAbsoluteDeviationUse, resMeanUse, resZScoreUse, error500
+        resultado, data, options, mapRest2, resVarianceUse, resStandardDeviationUse, resMedianAbsoluteDeviationUse, resMeanUse, resZScoreUse, error500,resInterquartileRangeUse
     }
 
 

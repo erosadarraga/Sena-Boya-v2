@@ -12,14 +12,14 @@ const { Option } = Select;
 export const Analitica = () => {
     const [active, setActive] = useState(false)
 
-    const { data, options, resultado, resMeanUse, resMedianAbsoluteDeviationUse, resStandardDeviationUse, resVarianceUse, resZScoreUse } = usePeticionHook()
+    const { data, options, resultado, resMeanUse, resMedianAbsoluteDeviationUse, resStandardDeviationUse, resVarianceUse, resZScoreUse ,resInterquartileRangeUse} = usePeticionHook()
 
     const stats = [
         { title: 'Diferencia', value: Math.round((resVarianceUse + Number.EPSILON) * 100) / 100, icon: <FundOutlined /> },
         { title: 'Desviacion Estandar', value: Math.round((resStandardDeviationUse + Number.EPSILON) * 100) / 100, icon: <FundOutlined /> },
-        { title: 'Desviación Absoluta Mediana', value: resMedianAbsoluteDeviationUse, icon: <FundOutlined /> },
+        { title: 'Desviación Absoluta Mediana', value:Math.round((resMedianAbsoluteDeviationUse + Number.EPSILON) * 100) / 100 , icon: <FundOutlined /> },
         { title: 'Puntuación  Z', value: Math.round((resZScoreUse + Number.EPSILON) * 100) / 100, icon: <FundOutlined /> },
-        { title: 'Fake', value: 1, icon: <FundOutlined /> },
+        { title: 'Rango Intercuartil', value: Math.round((resInterquartileRangeUse + Number.EPSILON) * 100) / 100, icon: <FundOutlined /> },
     ];
 
     const genericStats = [
